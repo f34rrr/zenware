@@ -10,67 +10,7 @@ A ZenSide Project.
 Made by fearlol_
 https://discord.gg/Q4Rr2NnG8W
 ]]
-
-local PlaceId = game.PlaceId
-local plrs = game.Players
-local maxplayers = plrs.MaxPlayers
-local GetName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
- 
-local plr = game:GetService("Players")
-local http = game:GetService("HttpService")
-
 local _plr = game.Players.LocalPlayer
-plr.PlayerAdded:Connect(function(a)
-	local a = {
-		["embeds"] = {
-			{
-				["title"] = "**Execution Logs**",
-				["url"] = "https://www.roblox.com/games/"..PlaceId,
-				["description"] = "Game Name: " .. "`"..GetName.Name.."`",
-				["type"] = "rich",
-				["color"]= tonumber(0xff0000),
-				["footer"] = {
-					["icon_url"] = '',
-					["text"] = ""
-				},
-				["thumbnail"] = {
-					["url"] = "https://www.roblox.com/asset-thumbnail/image?assetId="..game.PlaceId.."&width=768&height=432&format=png",
-				},
-				["author"] = {
-					["name"] = "name"
- 
-				},
- 
-				["fields"] = {
-					{
- 
-						["name"] = '**Players in game**',
-						["value"] = "`"..#plrs:GetPlayers().."`",
-						["inline"] = true
- 
- 
- 
-					},
-					{
-						["name"] = '**Max Server Size**',
-						["value"] = "`"..game.Players.MaxPlayers.."`",
-						["inline"] = true,
- 
- 
-					},
-					{
-						["name"] = '**Place ID**',
-						["value"] = "`"..game.PlaceId.."`",
-						["inline"] = true
- 
-					},
-				}
-			}}
-	}
- 
-	a = http:JSONEncode(a)
-	http:PostAsync("https://discord.com/api/webhooks/1131414193963270244/O4Zp8G-9b1fmfdbHdfmDwB_QMLJhMnyj4QfI9HcTNsWZAcspDXqTZ5W9M5HrU2SoVYuR", a)
-end)
 
 if _plr:IsInGroup(17028173) then
     local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
